@@ -25,18 +25,41 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
   @keyframes float-delayed {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
   }
 
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.05); }
+
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -70,6 +93,7 @@
     opacity: 0;
     transform: translateY(28px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -77,8 +101,13 @@
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .hero-fade-up {
@@ -86,40 +115,69 @@
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.hero-stagger-1 { animation-delay: 0s; }
-.hero-stagger-2 { animation-delay: 0.15s; }
-.hero-stagger-3 { animation-delay: 0.3s; }
-.hero-stagger-4 { animation-delay: 0.5s; }
-.hero-stagger-5 { animation-delay: 0.7s; }
+.hero-stagger-1 {
+  animation-delay: 0s;
+}
+
+.hero-stagger-2 {
+  animation-delay: 0.15s;
+}
+
+.hero-stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.hero-stagger-4 {
+  animation-delay: 0.5s;
+}
+
+.hero-stagger-5 {
+  animation-delay: 0.7s;
+}
 
 .hero-fade-in {
   opacity: 0;
   animation: fade-in 0.6s ease-out forwards;
 }
 
-/* ===== Premium 3D Isometric Layer Flow ===== */
+/* ===== Spline Hero Depth Effect Animations ===== */
 
-/* Infinite Z-axis floating for glass plates */
-@keyframes float-z {
-  0% { transform: translateZ(calc(var(--tz) - 6px)) rotate(0deg); }
-  100% { transform: translateZ(calc(var(--tz) + 6px)) rotate(1.5deg); }
-}
-.iso-float {
-  animation: float-z 3s ease-in-out infinite alternate;
-  will-change: transform;
+/* Pulsing depth rings — expand outward and fade */
+@keyframes ring-pulse {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
 }
 
-/* Data bus infinite streaming */
-@keyframes iso-dash-stream {
-  to { stroke-dashoffset: -36px; }
+.hero-ring-pulse {
+  animation: ring-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
 }
-.iso-data-fast {
-  animation: iso-dash-stream 0.8s linear infinite;
-  will-change: stroke-dashoffset;
+
+/* Ambient orb floating — gentle y drift */
+@keyframes orb-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-12px);
+    opacity: 0.9;
+  }
 }
-.iso-data-slow {
-  animation: iso-dash-stream 1.5s linear infinite reverse;
-  will-change: stroke-dashoffset;
+
+.hero-orb-float {
+  animation: orb-float 6s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 /* ===== Mobile Nav Overlay ===== */
@@ -129,6 +187,7 @@
     opacity: 0;
     transform: translateX(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -140,6 +199,7 @@
     opacity: 0;
     transform: translateX(40px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -158,10 +218,13 @@
 /* ===== Live Dot Pulse ===== */
 
 @keyframes dot-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.4);
@@ -175,8 +238,13 @@
 /* ===== Navbar Bottom Accent ===== */
 
 @keyframes accent-line-in {
-  0% { transform: scaleX(0); }
-  100% { transform: scaleX(1); }
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 .nav-accent-line {
@@ -203,14 +271,16 @@ body {
 
 .hero-btn-primary {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s ease;
+    box-shadow 0.3s ease;
   box-shadow: 0 4px 14px rgba(13, 89, 242, 0.25);
 }
+
 .hero-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(13, 89, 242, 0.35),
-              0 0 0 1px rgba(13, 89, 242, 0.08);
+    0 0 0 1px rgba(13, 89, 242, 0.08);
 }
+
 .hero-btn-primary:active {
   transform: translateY(0px);
   box-shadow: 0 2px 8px rgba(13, 89, 242, 0.2);
@@ -218,14 +288,67 @@ body {
 
 .hero-btn-ghost {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s ease;
+    box-shadow 0.3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
+
 .hero-btn-ghost:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(13, 89, 242, 0.08);
 }
+
 .hero-btn-ghost:active {
   transform: translateY(0px);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Float Animations for Metric Cards ===== */
+
+@keyframes float-subtle {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float-1 {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-subtle 4.5s ease-in-out infinite 1s;
+}
+
+.animate-float-3 {
+  animation: float-subtle 5s ease-in-out infinite 2s;
+}
+
+.animate-float-mobile {
+  animation: float-subtle 6s ease-in-out infinite 0.5s;
+}
+
+/* ===== Spline Watermark & Canvas Overrides ===== */
+
+/* Hide the "Built with Spline" badge */
+#spline-watermark,
+a[href*="spline.design"],
+[class*="spline-watermark"],
+canvas~div>a,
+canvas+div[style*="position: absolute"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Remove Spline canvas default white background box */
+spline-viewer,
+canvas {
+  background: transparent !important;
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import HeroAnimation from "./HeroBackground";
+import Image from "next/image";
+import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
     return (
@@ -7,8 +8,91 @@ export default function Hero() {
             className="w-full max-w-7xl mx-auto pt-32 pb-10 px-4 sm:px-6 lg:px-8 relative overflow-visible"
             id="home"
         >
-            {/* Ambient background glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
+            {/* ── Animated Scalable Abstract Background ── */}
+            <div className="absolute inset-0 w-[100vw] h-[120%] left-1/2 -translate-x-1/2 -z-20 overflow-hidden pointer-events-none">
+                {/* Base soft gradient */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-50 via-white to-white" />
+
+                {/* High-Fidelity Animated SVG Geometry */}
+                <svg className="absolute inset-0 w-full h-full" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        {`
+                          @keyframes floatSlow {
+                            0%, 100% { transform: translate(0px, 0px); }
+                            50% { transform: translate(-10px, 15px); }
+                          }
+                          @keyframes floatMid {
+                            0%, 100% { transform: translate(0px, 0px); }
+                            50% { transform: translate(15px, -10px); }
+                          }
+                          @keyframes floatFast {
+                            0%, 100% { transform: translate(0px, 0px); }
+                            50% { transform: translate(-5px, -20px); }
+                          }
+                          @keyframes spinSlow {
+                            100% { transform: rotate(360deg); }
+                          }
+                          @keyframes spinReverse {
+                            100% { transform: rotate(-360deg); }
+                          }
+                          @keyframes pulseGentle {
+                            0%, 100% { transform: scale(1); opacity: 0.5; }
+                            50% { transform: scale(1.05); opacity: 0.8; }
+                          }
+                        `}
+                    </style>
+                    <defs>
+                        {/* Architectural Dot Grid */}
+                        <pattern id="hero-dot-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1.5" className="fill-slate-200" />
+                        </pattern>
+                        {/* Plus Pattern */}
+                        <pattern id="hero-plus-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+                            <path d="M24 20v8m-4-4h8" className="stroke-slate-200" strokeWidth="1.5" strokeLinecap="round" />
+                        </pattern>
+                    </defs>
+
+                    {/* Faint base grid covering left side */}
+                    <rect x="0" y="0" width="40%" height="100%" fill="url(#hero-dot-grid)" className="opacity-[0.3]" />
+
+                    {/* Plus grid scattered on right side */}
+                    <rect x="60%" y="20%" width="40%" height="60%" fill="url(#hero-plus-grid)" className="opacity-[0.4]" />
+
+                    {/* Animated Floating Geometric Wireframes */}
+
+                    {/* Top right rings */}
+                    <g style={{ transformOrigin: '85% 15%', animation: 'spinSlow 60s linear infinite' }}>
+                        <circle cx="85%" cy="15%" r="200" className="stroke-slate-200/60 fill-transparent" strokeWidth="1.5" strokeDasharray="12 12" />
+                    </g>
+                    <g style={{ transformOrigin: '85% 15%', animation: 'pulseGentle 6s ease-in-out infinite' }}>
+                        <circle cx="85%" cy="15%" r="150" className="stroke-slate-200 fill-slate-50" strokeWidth="1" />
+                    </g>
+
+                    {/* Bottom left dashed ring */}
+                    <g style={{ transformOrigin: '10% 85%', animation: 'spinReverse 40s linear infinite' }}>
+                        <circle cx="10%" cy="85%" r="280" className="stroke-slate-300/60 fill-transparent" strokeWidth="1.5" strokeDasharray="4 6" />
+                    </g>
+
+                    {/* Abstract overlapping fluid lines with floating transformations */}
+                    <g style={{ animation: 'floatSlow 10s ease-in-out infinite' }}>
+                        <path d="M -200,400 C 300,300 600,700 1200,300 C 1800,-100 2400,400 3000,100" className="stroke-slate-200" fill="none" strokeWidth="1" />
+                    </g>
+                    <g style={{ animation: 'floatMid 12s ease-in-out infinite 1s' }}>
+                        <path d="M -100,500 C 400,200 700,600 1300,400 C 1900,200 2300,500 2800,200" className="stroke-primary/20" fill="none" strokeWidth="2" />
+                    </g>
+                    <g style={{ animation: 'floatFast 14s ease-in-out infinite 2s' }}>
+                        <path d="M -300,600 C 200,700 500,400 1100,600 C 1700,800 2100,100 2700,300" className="stroke-slate-200" fill="none" strokeWidth="1.5" />
+                    </g>
+                </svg>
+
+                {/* Soft ambient glowing orbs */}
+                <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] mix-blend-multiply animate-pulse" style={{ animationDuration: '6s' }} />
+                <div className="absolute bottom-[20%] left-[5%] w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[120px] mix-blend-multiply animate-pulse" style={{ animationDuration: '8s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
+
+                {/* Bottom gradient fade-out to blend seamlessly into next section */}
+                <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent" />
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full relative z-10">
                 <header className="lg:col-span-6 flex flex-col gap-8 z-10">
@@ -109,9 +193,9 @@ export default function Hero() {
                     </div>
                 </header>
 
-                {/* ── 3D Isometric Visual ── */}
-                <figure className="lg:col-span-6 relative h-[600px] w-full hidden lg:block pointer-events-none">
-                    <HeroAnimation />
+                {/* ── Hero Visual ── */}
+                <figure className="lg:col-span-6 relative h-[600px] w-full hidden lg:block overflow-visible">
+                    <HeroVisual />
                 </figure>
             </div>
         </section>
