@@ -3,23 +3,23 @@
 import Link from "next/link";
 
 const navLinks = [
-    { name: "Home",     href: "#home" },
+    { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
-    { name: "Process",  href: "#process" },
-    { name: "Contact",  href: "#contact" },
+    { name: "Process", href: "#process" },
+    { name: "Contact", href: "#contact" },
 ];
 
 const serviceLinks = [
     { name: "Web Development", href: "#services" },
-    { name: "AI Automation",   href: "#services" },
-    { name: "UI / UX Design",  href: "#services" },
-    { name: "SEO & Growth",    href: "#services" },
+    { name: "AI Automation", href: "#services" },
+    { name: "UI / UX Design", href: "#services" },
+    { name: "SEO & Growth", href: "#services" },
 ];
 
 const legalLinks = [
     { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Use",  href: "#" },
+    { name: "Terms of Use", href: "#" },
 ];
 
 /* Social links — swap hrefs for real profiles */
@@ -82,12 +82,12 @@ export default function Footer() {
                             >
                                 layers
                             </span>
-                            <span className="text-slate-900 font-extrabold text-lg tracking-tight group-hover:text-primary transition-colors duration-300">
+                            <span className="text-slate-900 font-extrabold text-lg tracking-tight group-hover:text-primary transition-colors duration-300 drop-shadow-sm">
                                 TechMate4u
                             </span>
                         </Link>
 
-                        <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+                        <p className="text-slate-500 text-sm leading-relaxed max-w-xs drop-shadow-sm">
                             Full-cycle product studio — discovery, design, development, and deployment. We build what others only plan.
                         </p>
 
@@ -108,7 +108,7 @@ export default function Footer() {
 
                     {/* ── Col 2: Navigation ── */}
                     <div className="flex flex-col gap-3">
-                        <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+                        <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 drop-shadow-sm">
                             Navigation
                         </h3>
                         <ul className="flex flex-col gap-2.5">
@@ -127,7 +127,7 @@ export default function Footer() {
 
                     {/* ── Col 3: Services ── */}
                     <div className="flex flex-col gap-3">
-                        <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+                        <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 drop-shadow-sm">
                             Services
                         </h3>
                         <ul className="flex flex-col gap-2.5">
@@ -146,42 +146,25 @@ export default function Footer() {
 
                     {/* ── Col 4: Contact & CTA ── */}
                     <div className="flex flex-col gap-3">
-                        <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+                        <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-400 drop-shadow-sm">
                             Get In Touch
                         </h3>
+
                         <a
                             href="mailto:hello@techmate4u.com"
-                            className="text-sm text-slate-600 hover:text-primary transition-colors duration-200 font-medium"
-                        >
-                            hello@techmate4u.com
-                        </a>
-
-                        <Link
-                            href="#contact"
                             className="group relative overflow-hidden inline-flex items-center gap-2 bg-primary text-white text-sm font-bold rounded-full h-10 px-6 w-fit transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/25 mt-1"
                         >
                             <span className="relative z-10 transition-transform duration-300 group-hover:-translate-x-0.5">
-                                Start a Project
+                                Email Us
                             </span>
                             <span className="material-symbols-outlined text-[16px] relative z-10 opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                                arrow_forward
+                                mail
                             </span>
                             {/* Shimmer */}
                             <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] group-hover:translate-x-[500%] transition-transform duration-700 ease-out z-0" />
-                        </Link>
+                        </a>
 
-                        {/* Legal */}
-                        <div className="flex items-center gap-3 mt-2">
-                            {legalLinks.map((l) => (
-                                <Link
-                                    key={l.name}
-                                    href={l.href}
-                                    className="text-xs text-slate-400 hover:text-slate-600 transition-colors duration-200"
-                                >
-                                    {l.name}
-                                </Link>
-                            ))}
-                        </div>
+                        {/* Legal links removed temporarily as no Tos/Privacy Policy pages exist */}
                     </div>
                 </div>
 

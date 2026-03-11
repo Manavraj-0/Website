@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Capabilities from "@/components/Capabilities";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
@@ -10,10 +9,9 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex flex-col relative overflow-x-hidden">
+    <main className="flex flex-col relative overflow-x-hidden pt-0 mt-0">
       <Navbar />
       <Hero />
-      <Capabilities />
       <Services />
       <Portfolio />
       <Process />
